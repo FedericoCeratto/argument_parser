@@ -1,7 +1,15 @@
+# Generic wildcards.
 *.swp
+.DS_Store
 
+# Absolute paths.
+/LICENSE.html
+/README.html
 /argument_parser
 /argument_parser.html
+/docindex.html
+/docs/
 /examples/
+/nakefile
 /nimcache/
 /tests/

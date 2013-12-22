@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CURRDIR=`pwd`
-for VERSION in master `git tag -l`; do
+for VERSION in develop `git tag -l`; do
 	TMPDIR=/tmp/argument_parser-docs-$VERSION
 	DESTDIR=docs-$VERSION
 	rm -Rf $TMPDIR && rm -Rf $DESTDIR && mkdir -p $TMPDIR && \
