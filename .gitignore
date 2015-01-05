@@ -1,6 +1,7 @@
 # Generic wildcards.
 *.swp
 .DS_Store
+.sybil_systems
 
 # Absolute paths.
 /LICENSE.html
