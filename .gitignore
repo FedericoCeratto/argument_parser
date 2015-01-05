@@ -1,13 +1,15 @@
 # Global patterns
+*.exe
 *.html
+*.idx
 *.swp
 *.zip
 .DS_Store
 nimcache/
 
 # Full paths.
+/.sybil_systems
 /argument_parser
-/argument_parser.html
 /examples/ex_cp
 /examples/ex_git
 /examples/ex_mkdir

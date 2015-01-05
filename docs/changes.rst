@@ -2,6 +2,30 @@
 Argument parser changes log
 ===========================
 
+This is the changes log for `argument_parser
+<https://github.com/gradha/argument_parser>`_. See the `README
+<../README.rst>`_.
+
+v0.4.0 2015-01-06
+-----------------
+
+* `Updated code to work with 0.9.6 nim release
+  <https://github.com/gradha/argument_parser/issues/36>`_.
+* `Switched to master as development branch
+  <https://github.com/gradha/argument_parser/issues/31>`_.
+* `Replaced static docindex.rst with generated index
+  <https://github.com/gradha/argument_parser/issues/38>`_.
+* `Replace manual tests with badger_bits nake procs
+  <https://github.com/gradha/argument_parser/issues/39>`_.
+* `Replaced zip library with OS command to build redistributables
+  <https://github.com/gradha/argument_parser/issues/40>`_.
+* `Documented constructor syntax alternative to new_parsed_parameter template
+  <https://github.com/gradha/argument_parser/issues/22>`_.
+* `Updated to Nim 0.10.2 and Nimble
+  <https://github.com/gradha/argument_parser/issues/37>`_.
+* `Fixed deprecation warnings
+  <https://github.com/gradha/argument_parser/issues/30>`_.
+
 v0.2.0 2013-12-22
 -----------------
 
