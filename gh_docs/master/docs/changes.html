@@ -5,8 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Module ex_cp</title>
+<title>Argument parser changes log</title>
 <style type="text/css">
+
+body {
+  color: black;
+  background: white;
+}
 
 span.DecNumber {color: blue}
 span.BinNumber {color: blue}
@@ -20,7 +25,7 @@ span.LongStringLit {color: blue}
 span.CharLit {color: blue}
 span.EscapeSequence {color: black}
 span.Operator {color: black}
-span.Punctuation {color: black}
+span.Punctation {color: black}
 span.Comment, span.LongComment {font-style:italic; color: green}
 span.RegularExpression  {color: DarkViolet}
 span.TagStart {color: DarkViolet}
@@ -238,29 +243,81 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
 </head>
 <body>
 <div class="document" id="documentId">
-<h1 class="title">Module ex_cp</h1>
-<div class="navigation" id="navigation">
-<ul class="simple">
-<li>
-  <a class="reference" href="#6" id="56">Imports</a>
-  <ul class="simple">
-    
-  </ul>
-</li>
+<h1 class="title">Argument parser changes log</h1>
+<p>This is the changes log for <a class="reference external" href="https://github.com/gradha/argument_parser">argument_parser</a>. See the <a class="reference external" href="../README.html">README</a>.</p>
 
+<h1 id="v0-4-1">v0.4.1 ????-??-??</h1><ul class="simple"><li>Nothing yet.</li>
 </ul>
-</div>
-<div class="content" id="content">
-Example defining a simple copy command line program.
-<div class="section" id="6">
-<h1><a class="toc-backref" href="#56">Imports</a></h1>
-<dl class="item">
-<a class="reference external" href="argument_parser.html">argument_parser</a>, <a class="reference external" href="tables.html">tables</a>, <a class="reference external" href="strutils.html">strutils</a>, <a class="reference external" href="parseutils.html">parseutils</a>
-</dl></div>
 
-</div>
+<h1 id="v0-4-0-2015-01-06">v0.4.0 2015-01-06</h1><ul class="simple"><li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/36">Updated code to work with 0.9.6 nim release</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/31">Switched to master as development branch</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/38">Replaced static docindex.rst with generated index</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/39">Replace manual tests with badger_bits nake procs</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/40">Replaced zip library with OS command to build redistributables</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/22">Documented constructor syntax alternative to new_parsed_parameter template</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/37">Updated to Nim 0.10.2 and Nimble</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/30">Fixed deprecation warnings</a>.</li>
+</ul>
 
-<small>Generated: 2014-09-28 10:04:24 UTC</small>
+<h1 id="v0-2-0-2013-12-22">v0.2.0 2013-12-22</h1><ul class="simple"><li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/25">Adopted git-flow</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/26">Changed documentation to rst</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/27">Integrated examples as documentation</a>.</li>
+<li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/28">Added zip with HTML docs as binary download</a>.</li>
+</ul>
+
+<h1 id="v0-1-1-2013-04-13">v0.1.1 2013-04-13</h1><ul class="simple"><li><a class="reference external" href="https://github.com/gradha/argument_parser/issues/20">Fixes testing for options with various names</a>.</li>
+</ul>
+
+<h1 id="v0-1-0-2013-03-10">v0.1.0 2013-03-10</h1><ul class="simple"><li>Initial release.</li>
+</ul>
+
+<small>Last modified: 2015-01-06 08:53 UTC. Local time: 2015-01-06 09:53.
+<div id="counter"></div>
+</small>
+<br>Rendered by lazy_rest 0.2.1.
 </div>
 </body>
+<script type="text/javascript">
+// Time difference code from http://stackoverflow.com/q/11479170/172690
+function timeDifference(current, previous) {
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = current - previous;
+
+    if (elapsed < msPerMinute) {
+         return Math.round(elapsed/1000) + ' seconds ago';
+    } else if (elapsed < msPerHour) {
+         return Math.round(elapsed/msPerMinute) + ' minutes ago';
+    } else if (elapsed < msPerDay ) {
+         return Math.round(elapsed/msPerHour ) + ' hours ago';
+    } else if (elapsed < msPerMonth) {
+         return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';
+    } else if (elapsed < msPerYear) {
+         return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+    } else {
+         return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';
+    }
+}
+
+// Timer base code taken from http://stackoverflow.com/a/11876480/172690
+window.onload = function() {
+    var fileTime = new Date(1420534383000);
+	var ctr = document.getElementById("counter");
+
+    function incrementCounter() {
+		var nowTime = new Date();
+		var relTime = timeDifference(nowTime, fileTime)
+		ctr.innerHTML = relTime;
+		// Update ourselves in the future, every five seconds.
+		setTimeout(incrementCounter, 5000);
+    }
+
+    incrementCounter();
+}
+</script>
+
 </html>

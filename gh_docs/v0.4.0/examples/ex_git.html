@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>What to do for a new public release?</title>
+<title>Module ex_git</title>
 <style type="text/css">
 
 span.DecNumber {color: blue}
@@ -238,38 +238,52 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
 </head>
 <body>
 <div class="document" id="documentId">
-<h1 class="title">What to do for a new public release?</h1>
-<ul class="simple"><li>Create new milestone with version number.</li>
-<li>Create new dummy issue <cite>Release versionname</cite> and assign to that milestone.</li>
-<li>git flow release start versionname (versionname without v).</li>
-<li>Update version numbers:<ul class="simple"><li>Modify <a class="reference external" href="../README.html">../README.rst</a>.</li>
-<li>Modify <a class="reference external" href="../argument_parser.nim">../argument_parser.nim</a>.</li>
-<li>Modify <a class="reference external" href="../argument_parser.babel">../argument_parser.babel</a>.</li>
-<li>Update <a class="reference external" href="changes.html">changes.rst</a> with list of changes and version/number.</li>
-</ul>
+<h1 class="title">Module ex_git</h1>
+<div class="navigation" id="navigation">
+<ul class="simple">
+<li>
+  <a class="reference" href="#6" id="56">Imports</a>
+  <ul class="simple">
+    
+  </ul>
 </li>
-<li><tt class="docutils literal"><span class="pre">git commit -av</span></tt> into the release branch the version number changes.</li>
-<li>git flow release finish versionname (the tagname is versionname without v).</li>
-<li>Move closed issues without milestone to the release milestone.</li>
-<li>Push all to git: <tt class="docutils literal"><span class="pre">git push origin master develop --tags</span></tt>.</li>
-<li>Run <tt class="docutils literal"><span class="pre">nake dist_doc</span></tt> to generate zip package and attach to <a class="reference external" href="https://github.com/gradha/argument_parser/releases">https://github.com/gradha/argument_parser/releases</a>.</li>
-<li>Increase version numbers, at least maintenance (stable version + 0.1.1):<ul class="simple"><li>Modify <a class="reference external" href="../README.html">../README.rst</a>.</li>
-<li>Modify <a class="reference external" href="../argument_parser.nim">../argument_parser.nim</a>.</li>
-<li>Modify <a class="reference external" href="../argument_parser.babel">../argument_parser.babel</a>.</li>
-<li>Add to <a class="reference external" href="changes.html">changes.rst</a> development version with unknown date.</li>
-</ul>
+<li>
+  <a class="reference" href="#12" id="62">Procs</a>
+  <ul class="simple">
+      <li><a class="reference" href="#main,"
+    title="main*()"><wbr />main</a></li>
+
+  </ul>
 </li>
-<li><tt class="docutils literal"><span class="pre">git commit -av</span></tt> into develop with <cite>Bumps version numbers for develop branch. Refs #release issue</cite>.</li>
-<li>Close the dummy release issue.</li>
-<li>Check out gh-pages branch and run update script.</li>
-<li>Add to the index.html the link of the new version along with files.</li>
-<li>Push docs branch.</li>
-<li>Announce at <a class="reference external" href="http://forum.nimrod-code.org/t/135">http://forum.nimrod-code.org/t/135</a>.</li>
+
 </ul>
+</div>
+<div class="content" id="content">
+<p>Example defining a subset of git's functionality</p>
+<p>The point of this example is to show that you are not required to use options with dashes, you can use normal words too and mix them.</p>
+<p>At the moment, however, the parser is still too simple and doesn't handle branched options which are required for a true git commandline. That is, all the options you specify apply at the same time, so you can't exclude one switch being available only for a specific command.</p>
+<p>This is planned to be improved in the future both through branched switches (<a class="reference external" href="https://github.com/gradha/argument_parser/issues/18">https://github.com/gradha/argument_parser/issues/18</a>) and by opening the parsing state machine for custom procs which will allow any kind of behaviour you want (<a class="reference external" href="https://github.com/gradha/argument_parser/issues/19)">https://github.com/gradha/argument_parser/issues/19)</a>.</p>
+<p>Also, the look of the generated help is really bad with mixed commands and options. Custom help output will be allowed.</p>
+
+<div class="section" id="6">
+<h1><a class="toc-backref" href="#56">Imports</a></h1>
+<dl class="item">
+<a class="reference external" href="argument_parser.html">argument_parser</a>, <a class="reference external" href="tables.html">tables</a>, <a class="reference external" href="strutils.html">strutils</a>, <a class="reference external" href="parseutils.html">parseutils</a>
+</dl></div>
+<div class="section" id="12">
+<h1><a class="toc-backref" href="#62">Procs</a></h1>
+<dl class="item">
+<dt id="main"><a name="main,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">main</span><span class="Operator">*</span><span class="Other">(</span><span class="Other">)</span> <span class="Other">{.</span><span class="Identifier">procvar</span><span class="Other">.}</span></pre></dt>
+<dd>
 
 
+</dd>
 
-<small>Generated: 2014-09-28 10:04:26 UTC</small>
+</dl></div>
+
+</div>
+
+<small>Generated: 2015-01-06 09:53:03 UTC</small>
 </div>
 </body>
 </html>

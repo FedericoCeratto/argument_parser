@@ -251,31 +251,31 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
   <a class="reference" href="#7" id="57">Types</a>
   <ul class="simple">
       <li><a class="reference" href="#Tparam_kind"
-    title="Tparam_kind = enum 
+    title="Tparam_kind* = enum 
   PK_EMPTY, PK_INT, PK_FLOAT, PK_STRING, PK_BOOL, PK_BIGGEST_INT, 
   PK_BIGGEST_FLOAT, PK_HELP"><wbr />Tparam_<wbr />kind</a></li>
   <li><a class="reference" href="#Tparameter_callback"
-    title="Tparameter_callback = proc (parameter: string; value: var Tparsed_parameter): string"><wbr />Tparameter_<wbr />callback</a></li>
+    title="Tparameter_callback* = proc (parameter: string; value: var Tparsed_parameter): string"><wbr />Tparameter_<wbr />callback</a></li>
   <li><a class="reference" href="#Tparameter_specification"
-    title="Tparameter_specification = object 
+    title="Tparameter_specification* = object 
   names*: seq[string]         ## List of possible parameters to catch for this.
   consumes*: Tparam_kind      ## Expected type of the parameter (empty for none)
   custom_validator*: Tparameter_callback ## Optional custom callback
                                          ## to run after type conversion.
   help_text*: string          ## Help for this group of parameters."><wbr />Tparameter_<wbr />specification</a></li>
   <li><a class="reference" href="#Tparsed_parameter"
-    title="Tparsed_parameter = object 
+    title="Tparsed_parameter* = object 
   case kind*: Tparam_kind
   of PK_EMPTY: nil
   of PK_INT: int_val*: int
-  of PK_BIGGEST_INT: big_int_val*: BiggestInt
+  of PK_BIGGEST_INT: big_int_val*: biggestInt
   of PK_FLOAT: float_val*: float
-  of PK_BIGGEST_FLOAT: big_float_val*: BiggestFloat
+  of PK_BIGGEST_FLOAT: big_float_val*: biggestFloat
   of PK_STRING: str_val*: string
   of PK_BOOL: bool_val*: bool
   of PK_HELP: nil"><wbr />Tparsed_<wbr />parameter</a></li>
   <li><a class="reference" href="#Tcommandline_results"
-    title="Tcommandline_results = object of TObject
+    title="Tcommandline_results* = object of TObject
   positional_parameters*: seq[Tparsed_parameter]
   options*: TOrderedTable[string, Tparsed_parameter]"><wbr />Tcommandline_<wbr />results</a></li>
 
@@ -285,9 +285,9 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
   <a class="reference" href="#10" id="60">Consts</a>
   <ul class="simple">
       <li><a class="reference" href="#VERSION_STR"
-    title="VERSION_STR = &quot;0.2.0&quot;"><wbr />VERSION_<wbr />STR</a></li>
+    title="VERSION_STR* = &quot;0.2.0&quot;"><wbr />VERSION_<wbr />STR</a></li>
   <li><a class="reference" href="#VERSION_INT"
-    title="VERSION_INT = (major: 0, minor: 2, maintenance: 0)"><wbr />VERSION_<wbr />INT</a></li>
+    title="VERSION_INT* = (major: 0, minor: 2, maintenance: 0)"><wbr />VERSION_<wbr />INT</a></li>
 
   </ul>
 </li>
@@ -295,36 +295,40 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
   <a class="reference" href="#12" id="62">Procs</a>
   <ul class="simple">
       <li><a class="reference" href="#$,Tparam_kind"
-    title="`$`(value: Tparam_kind): string"><wbr />`$`</a></li>
-  <li><a class="reference" href="#init,Tparameter_specification,Tparameter_callback,string,varargs[string]"
-    title="init(param: var Tparameter_specification; consumes = PK_EMPTY; 
-     custom_validator: Tparameter_callback = nil; help_text = &quot;&quot;; 
-     names: varargs[string])"><wbr />init</a></li>
-  <li><a class="reference" href="#new_parameter_specification,Tparameter_callback,string,varargs[string]"
-    title="new_parameter_specification(consumes = PK_EMPTY; 
-                            custom_validator: Tparameter_callback = nil; 
-                            help_text = &quot;&quot;; names: varargs[string]): Tparameter_specification"><wbr />new_<wbr />parameter_<wbr />specification</a></li>
+    title="`$`*(value: Tparam_kind): string">`<wbr />$`</a></li>
+  <li><a class="reference" href="#init,Tparameter_specification,Tparameter_callback,varargs[string]"
+    title="init*(param: var Tparameter_specification; consumes = PK_EMPTY; 
+      custom_validator: Tparameter_callback = nil; help_text = &quot;&quot;; 
+      names: varargs[string])"><wbr />init</a></li>
+  <li><a class="reference" href="#new_parameter_specification,Tparameter_callback,varargs[string]"
+    title="new_parameter_specification*(consumes = PK_EMPTY; 
+                             custom_validator: Tparameter_callback = nil; 
+                             help_text = &quot;&quot;; names: varargs[string]): Tparameter_specification"><wbr />new_<wbr />parameter_<wbr />specification</a></li>
   <li><a class="reference" href="#$,Tparsed_parameter"
-    title="`$`(data: Tparsed_parameter): string"><wbr />`$`</a></li>
+    title="`$`*(data: Tparsed_parameter): string">`<wbr />$`</a></li>
   <li><a class="reference" href="#init,Tcommandline_results,seq[Tparsed_parameter],TOrderedTable[string,Tparsed_parameter]"
-    title="init(param: var Tcommandline_results; 
-     positional_parameters: seq[Tparsed_parameter] = @ []; 
-     options: TOrderedTable[string, Tparsed_parameter] = initOrderedTable(4))"><wbr />init</a></li>
+    title="init*(param: var Tcommandline_results; 
+      positional_parameters: seq[Tparsed_parameter] = @ []; options: TOrderedTable[
+    string, Tparsed_parameter] = initOrderedTable[string, Tparsed_parameter](4))"><wbr />init</a></li>
   <li><a class="reference" href="#$,Tcommandline_results"
-    title="`$`(data: Tcommandline_results): string"><wbr />`$`</a></li>
-  <li><a class="reference" href="#parse,seq[Tparameter_specification],seq[TaintedString],string"
-    title="parse(expected: seq[Tparameter_specification] = @ []; 
-      type_of_positional_parameters = PK_STRING; args: seq[TaintedString] = nil; 
-      bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;; 
-      quit_on_failure = true): Tcommandline_results"><wbr />parse</a></li>
-  <li><a class="reference" href="#build_help,seq[Tparameter_specification],string"
-    title="build_help(expected: seq[Tparameter_specification] = @ []; 
+    title="`$`*(data: Tcommandline_results): string">`<wbr />$`</a></li>
+  <li><a class="reference" href="#echo_help,seq[Tparameter_specification]"
+    title="echo_help*(expected: seq[Tparameter_specification] = @ []; 
            type_of_positional_parameters = PK_STRING; 
-           bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;): seq[string]"><wbr />build_<wbr />help</a></li>
-  <li><a class="reference" href="#echo_help,seq[Tparameter_specification],string"
-    title="echo_help(expected: seq[Tparameter_specification] = @ []; 
-          type_of_positional_parameters = PK_STRING; 
-          bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;)"><wbr />echo_<wbr />help</a></li>
+           bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;)"><wbr />echo_<wbr />help</a></li>
+  <li><a class="reference" href="#parse,seq[Tparameter_specification],seq[TaintedString]"
+    title="parse*(expected: seq[Tparameter_specification] = @ []; 
+       type_of_positional_parameters = PK_STRING; 
+       args: seq[TaintedString] = nil; bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; 
+       end_of_options = &quot;--&quot;; quit_on_failure = true): Tcommandline_results"><wbr />parse</a></li>
+  <li><a class="reference" href="#build_help,seq[Tparameter_specification]"
+    title="build_help*(expected: seq[Tparameter_specification] = @ []; 
+            type_of_positional_parameters = PK_STRING; 
+            bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;): seq[string]"><wbr />build_<wbr />help</a></li>
+  <li><a class="reference" href="#echo_help,seq[Tparameter_specification]_2"
+    title="echo_help*(expected: seq[Tparameter_specification] = @ []; 
+           type_of_positional_parameters = PK_STRING; 
+           bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;)"><wbr />echo_<wbr />help</a></li>
 
   </ul>
 </li>
@@ -332,7 +336,7 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
   <a class="reference" href="#18" id="68">Templates</a>
   <ul class="simple">
       <li><a class="reference" href="#new_parsed_parameter.t,Tparam_kind,"
-    title="new_parsed_parameter(tkind: Tparam_kind; expr): Tparsed_parameter"><wbr />new_<wbr />parsed_<wbr />parameter</a></li>
+    title="new_parsed_parameter*(tkind: Tparam_kind; expr): Tparsed_parameter"><wbr />new_<wbr />parsed_<wbr />parameter</a></li>
 
   </ul>
 </li>
@@ -352,14 +356,14 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#57">Types</a></h1>
 <dl class="item">
-<dt id="Tparam_kind"><a name="Tparam_kind"></a><pre><span class="Identifier">Tparam_kind</span> <span class="Other">=</span> <span class="Keyword">enum</span> 
+<dt id="Tparam_kind"><a name="Tparam_kind"></a><pre><span class="Identifier">Tparam_kind</span><span class="Operator">*</span> <span class="Other">=</span> <span class="Keyword">enum</span> 
   <span class="Identifier">PK_EMPTY</span><span class="Other">,</span> <span class="Identifier">PK_INT</span><span class="Other">,</span> <span class="Identifier">PK_FLOAT</span><span class="Other">,</span> <span class="Identifier">PK_STRING</span><span class="Other">,</span> <span class="Identifier">PK_BOOL</span><span class="Other">,</span> <span class="Identifier">PK_BIGGEST_INT</span><span class="Other">,</span> 
   <span class="Identifier">PK_BIGGEST_FLOAT</span><span class="Other">,</span> <span class="Identifier">PK_HELP</span></pre></dt>
 <dd>
 Different types of results for parameter parsing.
 
 </dd>
-<dt id="Tparameter_callback"><a name="Tparameter_callback"></a><pre><span class="Identifier">Tparameter_callback</span> <span class="Other">=</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">parameter</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<dt id="Tparameter_callback"><a name="Tparameter_callback"></a><pre><span class="Identifier">Tparameter_callback</span><span class="Operator">*</span> <span class="Other">=</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">parameter</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
 <dd>
 <p>
 Prototype of parameter callbacks</p>
@@ -369,7 +373,7 @@ Prototype of parameter callbacks</p>
 
 
 </dd>
-<dt id="Tparameter_specification"><a name="Tparameter_specification"></a><pre><span class="Identifier">Tparameter_specification</span> <span class="Other">=</span> <span class="Keyword">object</span> 
+<dt id="Tparameter_specification"><a name="Tparameter_specification"></a><pre><span class="Identifier">Tparameter_specification</span><span class="Operator">*</span> <span class="Other">=</span> <span class="Keyword">object</span> 
   <span class="Identifier">names</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>         <span class="Comment">## List of possible parameters to catch for this.</span>
   <span class="Identifier">consumes</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Tparam_kind</span>      <span class="Comment">## Expected type of the parameter (empty for none)</span>
   <span class="Identifier">custom_validator</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Tparameter_callback</span> <span class="Comment">## Optional custom callback</span>
@@ -383,13 +387,13 @@ Holds the expectations of a parameter.</p>
 
 
 </dd>
-<dt id="Tparsed_parameter"><a name="Tparsed_parameter"></a><pre><span class="Identifier">Tparsed_parameter</span> <span class="Other">=</span> <span class="Keyword">object</span> 
+<dt id="Tparsed_parameter"><a name="Tparsed_parameter"></a><pre><span class="Identifier">Tparsed_parameter</span><span class="Operator">*</span> <span class="Other">=</span> <span class="Keyword">object</span> 
   <span class="Keyword">case</span> <span class="Identifier">kind</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Tparam_kind</span>
   <span class="Keyword">of</span> <span class="Identifier">PK_EMPTY</span><span class="Other">:</span> <span class="Keyword">nil</span>
   <span class="Keyword">of</span> <span class="Identifier">PK_INT</span><span class="Other">:</span> <span class="Identifier">int_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">int</span>
-  <span class="Keyword">of</span> <span class="Identifier">PK_BIGGEST_INT</span><span class="Other">:</span> <span class="Identifier">big_int_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">BiggestInt</span>
+  <span class="Keyword">of</span> <span class="Identifier">PK_BIGGEST_INT</span><span class="Other">:</span> <span class="Identifier">big_int_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">biggestInt</span>
   <span class="Keyword">of</span> <span class="Identifier">PK_FLOAT</span><span class="Other">:</span> <span class="Identifier">float_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">float</span>
-  <span class="Keyword">of</span> <span class="Identifier">PK_BIGGEST_FLOAT</span><span class="Other">:</span> <span class="Identifier">big_float_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">BiggestFloat</span>
+  <span class="Keyword">of</span> <span class="Identifier">PK_BIGGEST_FLOAT</span><span class="Other">:</span> <span class="Identifier">big_float_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">biggestFloat</span>
   <span class="Keyword">of</span> <span class="Identifier">PK_STRING</span><span class="Other">:</span> <span class="Identifier">str_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
   <span class="Keyword">of</span> <span class="Identifier">PK_BOOL</span><span class="Other">:</span> <span class="Identifier">bool_val</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
   <span class="Keyword">of</span> <span class="Identifier">PK_HELP</span><span class="Other">:</span> <span class="Keyword">nil</span>
@@ -401,7 +405,7 @@ Contains the parsed value from the user.</p>
 
 
 </dd>
-<dt id="Tcommandline_results"><a name="Tcommandline_results"></a><pre><span class="Identifier">Tcommandline_results</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">TObject</span>
+<dt id="Tcommandline_results"><a name="Tcommandline_results"></a><pre><span class="Identifier">Tcommandline_results</span><span class="Operator">*</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">TObject</span>
   <span class="Identifier">positional_parameters</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparsed_parameter</span><span class="Other">]</span>
   <span class="Identifier">options</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">TOrderedTable</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">]</span>
 </pre></dt>
@@ -418,12 +422,12 @@ Contains the results of the parsing.</p>
 <div class="section" id="10">
 <h1><a class="toc-backref" href="#60">Consts</a></h1>
 <dl class="item">
-<dt id="VERSION_STR"><a name="VERSION_STR"></a><pre><span class="Identifier">VERSION_STR</span> <span class="Other">=</span> <span class="StringLit">&quot;0.2.0&quot;</span></pre></dt>
+<dt id="VERSION_STR"><a name="VERSION_STR"></a><pre><span class="Identifier">VERSION_STR</span><span class="Operator">*</span> <span class="Other">=</span> <span class="StringLit">&quot;0.2.0&quot;</span></pre></dt>
 <dd>
 Module version as a string.
 
 </dd>
-<dt id="VERSION_INT"><a name="VERSION_INT"></a><pre><span class="Identifier">VERSION_INT</span> <span class="Other">=</span> <span class="Other">(</span><span class="Identifier">major</span><span class="Other">:</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="Identifier">minor</span><span class="Other">:</span> <span class="DecNumber">2</span><span class="Other">,</span> <span class="Identifier">maintenance</span><span class="Other">:</span> <span class="DecNumber">0</span><span class="Other">)</span></pre></dt>
+<dt id="VERSION_INT"><a name="VERSION_INT"></a><pre><span class="Identifier">VERSION_INT</span><span class="Operator">*</span> <span class="Other">=</span> <span class="Other">(</span><span class="Identifier">major</span><span class="Other">:</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="Identifier">minor</span><span class="Other">:</span> <span class="DecNumber">2</span><span class="Other">,</span> <span class="Identifier">maintenance</span><span class="Other">:</span> <span class="DecNumber">0</span><span class="Other">)</span></pre></dt>
 <dd>
 <p>
 Module version as an integer tuple.</p>
@@ -438,57 +442,57 @@ Module version as an integer tuple.</p>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#62">Procs</a></h1>
 <dl class="item">
-<dt id="$"><a name="$,Tparam_kind"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`$`</span><span class="Other">(</span><span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">Tparam_kind</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">{.</span><span class="Identifier">procvar</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="$"><a name="$,Tparam_kind"></a><pre><span class="Keyword">proc</span> <span class="Other">`</span><span class="Operator">$</span><span class="Other">`</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">Tparam_kind</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">{.</span><span class="Identifier">procvar</span><span class="Other">.}</span></pre></dt>
 <dd>
 Stringifies the type, used to generate help texts.
 
 </dd>
-<dt id="init"><a name="init,Tparameter_specification,Tparameter_callback,string,varargs[string]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">init</span><span class="Other">(</span><span class="Identifier">param</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Tparameter_specification</span><span class="Other">;</span> <span class="Identifier">consumes</span> <span class="Other">=</span> <span class="Identifier">PK_EMPTY</span><span class="Other">;</span> 
-          <span class="Identifier">custom_validator</span><span class="Other">:</span> <span class="Identifier">Tparameter_callback</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">help_text</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;</span><span class="Other">;</span> 
-          <span class="Identifier">names</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span> <span class="Other">{.</span><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="init"><a name="init,Tparameter_specification,Tparameter_callback,varargs[string]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">init</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">param</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Tparameter_specification</span><span class="Other">;</span> <span class="Identifier">consumes</span> <span class="Other">=</span> <span class="Identifier">PK_EMPTY</span><span class="Other">;</span> 
+           <span class="Identifier">custom_validator</span><span class="Other">:</span> <span class="Identifier">Tparameter_callback</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">help_text</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;</span><span class="Other">;</span> 
+           <span class="Identifier">names</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span></pre></dt>
 <dd>
 <p>Initialization helper with default parameters.</p>
 <p>You can decide to miss some if you like the defaults, reducing code. You can also use new_parameter_specification() for single assignment variables.</p>
 
 
 </dd>
-<dt id="new_parameter_specification"><a name="new_parameter_specification,Tparameter_callback,string,varargs[string]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">new_parameter_specification</span><span class="Other">(</span><span class="Identifier">consumes</span> <span class="Other">=</span> <span class="Identifier">PK_EMPTY</span><span class="Other">;</span> 
-                                 <span class="Identifier">custom_validator</span><span class="Other">:</span> <span class="Identifier">Tparameter_callback</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> 
-                                 <span class="Identifier">help_text</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;</span><span class="Other">;</span> <span class="Identifier">names</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Tparameter_specification</span> <span class="Other">{.</span>
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">E_Base</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="new_parameter_specification"><a name="new_parameter_specification,Tparameter_callback,varargs[string]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">new_parameter_specification</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">consumes</span> <span class="Other">=</span> <span class="Identifier">PK_EMPTY</span><span class="Other">;</span> 
+                                  <span class="Identifier">custom_validator</span><span class="Other">:</span> <span class="Identifier">Tparameter_callback</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> 
+                                  <span class="Identifier">help_text</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;</span><span class="Other">;</span> <span class="Identifier">names</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Tparameter_specification</span></pre></dt>
 <dd>
 Initialization helper for single assignment variables.
 
 </dd>
-<dt id="$"><a name="$,Tparsed_parameter"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`$`</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">{.</span><span class="Identifier">procvar</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">EInvalidValue</span><span class="Other">]</span><span class="Other">,</span> 
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="$"><a name="$,Tparsed_parameter"></a><pre><span class="Keyword">proc</span> <span class="Other">`</span><span class="Operator">$</span><span class="Other">`</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">{.</span><span class="Identifier">procvar</span><span class="Other">.}</span></pre></dt>
 <dd>
 <p>Stringifies the value, mostly for debug purposes.</p>
 <p>The proc will display the value followed by non string type in brackets. The non string types would be PK_INT (i), PK_BIGGEST_INT (I), PK_FLOAT (f), PK_BIGGEST_FLOAT (F), PK_BOOL (b). The string type would be enclosed inside quotes. PK_EMPTY produces the word <cite>nil</cite>, and PK_HELP produces the world <cite>help</cite>.</p>
 
 
 </dd>
-<dt id="init"><a name="init,Tcommandline_results,seq[Tparsed_parameter],TOrderedTable[string,Tparsed_parameter]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">init</span><span class="Other">(</span><span class="Identifier">param</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Tcommandline_results</span><span class="Other">;</span> 
-          <span class="Identifier">positional_parameters</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparsed_parameter</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">options</span><span class="Other">:</span> <span class="Identifier">TOrderedTable</span><span class="Other">[</span>
-    <span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">initOrderedTable</span><span class="Other">(</span><span class="DecNumber">4</span><span class="Other">)</span><span class="Other">)</span> <span class="Other">{.</span><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> 
-    <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="init"><a name="init,Tcommandline_results,seq[Tparsed_parameter],TOrderedTable[string,Tparsed_parameter]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">init</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">param</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Tcommandline_results</span><span class="Other">;</span> 
+           <span class="Identifier">positional_parameters</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparsed_parameter</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">options</span><span class="Other">:</span> <span class="Identifier">TOrderedTable</span><span class="Other">[</span>
+    <span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">initOrderedTable</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">Tparsed_parameter</span><span class="Other">]</span><span class="Other">(</span><span class="DecNumber">4</span><span class="Other">)</span><span class="Other">)</span></pre></dt>
 <dd>
 Initialization helper with default parameters.
 
 </dd>
-<dt id="$"><a name="$,Tcommandline_results"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`$`</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">Tcommandline_results</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">{.</span><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">E_Base</span><span class="Other">]</span><span class="Other">,</span> 
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="$"><a name="$,Tcommandline_results"></a><pre><span class="Keyword">proc</span> <span class="Other">`</span><span class="Operator">$</span><span class="Other">`</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">Tcommandline_results</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
 <dd>
 Stringifies a Tcommandline_results structure for debug output
 
 </dd>
-<dt id="parse"><a name="parse,seq[Tparameter_specification],seq[TaintedString],string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">parse</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
-           <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
-           <span class="Identifier">args</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">TaintedString</span><span class="Other">]</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> 
-           <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">;</span> <span class="Identifier">quit_on_failure</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Tcommandline_results</span> <span class="Other">{.</span><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span>
-    <span class="Identifier">EInvalidIndex</span><span class="Other">,</span> <span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">EInvalidKey</span><span class="Other">,</span> <span class="Identifier">E_Base</span><span class="Other">,</span> <span class="Identifier">EInvalidKey</span><span class="Other">,</span> <span class="Identifier">EOverflow</span><span class="Other">,</span> 
-    <span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">EInvalidValue</span><span class="Other">]</span><span class="Other">,</span> 
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">FReadIO</span><span class="Other">,</span> <span class="Identifier">TEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="echo_help"><a name="echo_help,seq[Tparameter_specification]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">echo_help</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
+                <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
+                <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">)</span></pre></dt>
+<dd>
+
+
+</dd>
+<dt id="parse"><a name="parse,seq[Tparameter_specification],seq[TaintedString]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">parse</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
+            <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
+            <span class="Identifier">args</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">TaintedString</span><span class="Other">]</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> 
+            <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">;</span> <span class="Identifier">quit_on_failure</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Tcommandline_results</span></pre></dt>
 <dd>
 <p>Parses parameters and returns results.</p>
 <p>The expected array should contain a list of the parameters you want to detect, which can capture additional values. Uncaptured parameters are considered positional parameters for which you can specify a type with type_of_positional_parameters.</p>
@@ -498,20 +502,19 @@ Stringifies a Tcommandline_results structure for debug output
 
 
 </dd>
-<dt id="build_help"><a name="build_help,seq[Tparameter_specification],string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">build_help</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
-                <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
-                <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span> <span class="Other">{.</span>
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">EInvalidKey</span><span class="Other">,</span> <span class="Identifier">E_Base</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="build_help"><a name="build_help,seq[Tparameter_specification]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">build_help</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
+                 <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
+                 <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span>
+    <span class="Identifier">string</span><span class="Other">]</span></pre></dt>
 <dd>
 <p>Builds basic help text and returns it as a sequence of strings.</p>
 <p>Note that this proc doesn't do as much sanity checks as the normal parse() proc, though it's unlikely you will be using one without the other, so if you had a parameter specification problem you would find out soon.</p>
 
 
 </dd>
-<dt id="echo_help"><a name="echo_help,seq[Tparameter_specification],string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">echo_help</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
-               <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
-               <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">)</span> <span class="Other">{.</span>
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">EInvalidValue</span><span class="Other">,</span> <span class="Identifier">EInvalidKey</span><span class="Other">,</span> <span class="Identifier">E_Base</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">uses</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">.}</span></pre></dt>
+<dt id="echo_help"><a name="echo_help,seq[Tparameter_specification]_2"></a><pre><span class="Keyword">proc</span> <span class="Identifier">echo_help</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">expected</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">Tparameter_specification</span><span class="Other">]</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">;</span> 
+                <span class="Identifier">type_of_positional_parameters</span> <span class="Other">=</span> <span class="Identifier">PK_STRING</span><span class="Other">;</span> 
+                <span class="Identifier">bad_prefixes</span> <span class="Other">=</span> <span class="Operator">@</span> <span class="Other">[</span><span class="StringLit">&quot;-&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">end_of_options</span> <span class="Other">=</span> <span class="StringLit">&quot;--&quot;</span><span class="Other">)</span></pre></dt>
 <dd>
 <p>Prints out help on the terminal.</p>
 <p>This is just a wrapper around build_help. Note that calling this proc won't exit your program, you should call quit() yourself.</p>
@@ -523,7 +526,7 @@ Stringifies a Tcommandline_results structure for debug output
 <div class="section" id="18">
 <h1><a class="toc-backref" href="#68">Templates</a></h1>
 <dl class="item">
-<dt id="new_parsed_parameter"><a name="new_parsed_parameter.t,Tparam_kind,"></a><pre><span class="Keyword">template</span> <span class="Identifier">new_parsed_parameter</span><span class="Other">(</span><span class="Identifier">tkind</span><span class="Other">:</span> <span class="Identifier">Tparam_kind</span><span class="Other">;</span> <span class="Identifier">expr</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Tparsed_parameter</span></pre></dt>
+<dt id="new_parsed_parameter"><a name="new_parsed_parameter.t,Tparam_kind,"></a><pre><span class="Keyword">template</span> <span class="Identifier">new_parsed_parameter</span><span class="Operator">*</span><span class="Other">(</span><span class="Identifier">tkind</span><span class="Other">:</span> <span class="Identifier">Tparam_kind</span><span class="Other">;</span> <span class="Identifier">expr</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Tparsed_parameter</span></pre></dt>
 <dd>
 <p>Handy compile time template to build Tparsed_parameter object variants.</p>
 <p>The problem with object variants is that you first have to initialise them to a kind, then assign values to the correct variable, and it is a little bit annoying.</p>
@@ -541,7 +544,7 @@ Stringifies a Tcommandline_results structure for debug output
 
 </div>
 
-<small>Generated: 2014-09-28 10:04:21 UTC</small>
+<small>Generated: 2015-01-06 09:53:03 UTC</small>
 </div>
 </body>
 </html>

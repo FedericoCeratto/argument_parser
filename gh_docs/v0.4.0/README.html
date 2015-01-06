@@ -5,8 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Nimrod argument parser</title>
+<title>Argument parser readme</title>
 <style type="text/css">
+
+body {
+  color: black;
+  background: white;
+}
 
 span.DecNumber {color: blue}
 span.BinNumber {color: blue}
@@ -20,7 +25,7 @@ span.LongStringLit {color: blue}
 span.CharLit {color: blue}
 span.EscapeSequence {color: black}
 span.Operator {color: black}
-span.Punctuation {color: black}
+span.Punctation {color: black}
 span.Comment, span.LongComment {font-style:italic; color: green}
 span.RegularExpression  {color: DarkViolet}
 span.TagStart {color: DarkViolet}
@@ -238,42 +243,89 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
 </head>
 <body>
 <div class="document" id="documentId">
-<h1 class="title">Nimrod argument parser</h1>
-<p><a class="reference external" href="http://nimrod-lang.org">Nimrod</a> provides the <a class="reference external" href="http://nimrod-lang.org/parseopt.html">parseopt module</a> to parse options from the command line. I found this module lacking, used to python modules like <a class="reference external" href="http://docs.python.org/2/library/optparse.html">optparse</a> or <a class="reference external" href="http://docs.python.org/3/library/argparse.html">argparse</a>.  This module tries to provide similar functionality to prevent you from writing command line parsing and let you concentrate on providing the best possible experience for your users.</p>
+<h1 class="title">Argument parser readme</h1>
+<p>The <a class="reference external" href="http://nim-lang.org">Nim programming language</a> provides the <a class="reference external" href="http://nim-lang.org/parseopt.html">parseopt module</a> to parse options from the command line. I found this module lacking, used to python modules like <a class="reference external" href="http://docs.python.org/2/library/optparse.html">optparse</a> or <a class="reference external" href="http://docs.python.org/3/library/argparse.html">argparse</a>.  This module tries to provide similar functionality to prevent you from writing command line parsing and let you concentrate on providing the best possible experience for your users.</p>
 <p>An alternative to this module is the <a class="reference external" href="https://github.com/fenekku/commandeer">commandeer</a> module.</p>
 
 <h1 id="license">License</h1><p><a class="reference external" href="LICENSE.html">MIT license</a>.</p>
 
 <h1 id="installation">Installation</h1>
-<h2 id="stable-version">Stable version</h2><p>Install the <a class="reference external" href="http://nimrod-lang.org">Nimrod</a> compiler.  Use <a class="reference external" href="https://github.com/nimrod-code/babel">Nimrod's babel package manager</a> to install the module:<pre>
-$ babel update
-$ babel install argument_parser</pre>
+<h2 id="stable-version">Stable version</h2><p>Install the <a class="reference external" href="http://nim-lang.org">Nim</a> compiler.  Use <a class="reference external" href="https://github.com/nim-lang/nimble">Nim's Nimble package manager</a> to install the module:<pre>
+$ nimble update
+$ nimble install argument_parser</pre>
 </p>
 
-<h2 id="development-version">Development version</h2><p>Install the <a class="reference external" href="http://nimrod-lang.org">Nimrod</a> compiler.  Use <a class="reference external" href="https://github.com/nimrod-code/babel">Nimrod's babel package manager</a> to install locally the github checkout:<pre>
+<h2 id="development-version">Development version</h2><p>Install the <a class="reference external" href="http://nim-lang.org">Nim</a> compiler.  Use <a class="reference external" href="https://github.com/nim-lang/nimble">Nim's Nimble package manager</a> to install locally the github checkout:<pre>
 $ git clone https://github.com/gradha/argument_parser.git
 $ cd argument_parser
-$ git checkout develop
-$ babel install</pre>
+$ nimble install -y</pre>
+</p>
+<p>If you don't mind downloading the git repository every time, you can also tell Nimble to install the latest development version directly from git:<pre>
+$ nimble update
+$ nimble install -y argument_parser@#head</pre>
 </p>
 
-<h1 id="documentation">Documentation</h1><p>Once you have installed <tt class="docutils literal"><span class="pre">argument_parser</span></tt> you can just <tt class="docutils literal"><span class="pre">import argument_parser</span></tt> in your programs and use its API.  The <tt class="docutils literal"><span class="pre">argument_parser</span></tt> module comes with embedded docstrings. You can run <tt class="docutils literal"><span class="pre">nake doc</span></tt> to generate the HTML along with other documents, which are referenced from the <a class="reference external" href="docindex.html">docindex file</a>. Here is an example on how to build the HTML on Unix:<pre>
-$ cd `babel path argument_parser`
+<h1 id="documentation">Documentation</h1><p>Once you have installed <tt class="docutils literal"><span class="pre">argument_parser</span></tt> you can just <tt class="docutils literal"><span class="pre">import argument_parser</span></tt> in your programs and use its API.  The <tt class="docutils literal"><span class="pre">argument_parser</span></tt> module comes with embedded docstrings. You can run <tt class="docutils literal"><span class="pre">nake doc</span></tt> to generate the HTML along with other documents, which are referenced from the <a class="reference external" href="theindex.html">generated theindex.html</a> file.  Here is an example on how to build the HTML on Unix:<pre>
+$ cd `nimble path argument_parser`
 $ nake doc
-$ open docindex.html</pre>
+$ open theindex.html</pre>
 </p>
 <p>The generated documentation for all public versions can also be found at <a class="reference external" href="http://gradha.github.io/argument_parser/">http://gradha.github.io/argument_parser/</a>.  No guarantees on its freshness, though, do check the generation date at the bottom.</p>
-<p>In the distant future, when most features are complete, a tutorial will be provided to explain how to use the module. In the meantime you should read the examples provided in the <a class="reference external" href="examples">examples subdirectory</a>. These examples try to show how to implement common usage patterns for different types of command line parsing. The examples are also converted to HTML and referenced from the <a class="reference external" href="docindex.html">docindex file</a> for convenience.</p>
+<p>In the distant future, when most features are complete, a tutorial will be provided to explain how to use the module. In the meantime you should read the examples provided in the <a class="reference external" href="examples">examples subdirectory</a>. These examples try to show how to implement common usage patterns for different types of command line parsing.</p>
 
-<h1 id="changes">Changes</h1><p>This is version is 0.3.1. For a list of changes see the <a class="reference external" href="docs/changes.html">docs/changes.rst</a> file.</p>
+<h1 id="changes">Changes</h1><p>This is stable version 0.4.0. For a list of changes see the <a class="reference external" href="docs/changes.html">docs/changes.rst</a> file.</p>
 
-<h1 id="git-branches">Git branches</h1><p>This project uses the <a class="reference external" href="https://github.com/nvie/gitflow">git-flow branching model</a>. Which means the <tt class="docutils literal"><span class="pre">master</span></tt> default branch doesn't <em>see</em> much movement, development happens in another branch like <tt class="docutils literal"><span class="pre">develop</span></tt>. Most people will be fine using the <tt class="docutils literal"><span class="pre">master</span></tt> branch, but if you want to contribute something please check out first the <tt class="docutils literal"><span class="pre">develop</span></tt> branch and do pull requests against that.</p>
+<h1 id="git-branches">Git branches</h1><p>This project uses the <a class="reference external" href="https://github.com/nvie/gitflow">git-flow branching model</a> with reversed defaults. Stable releases are tracked in the <a class="reference external" href="https://github.com/gradha/argument_parser/tree/stable">stable branch</a>. Development happens in the default <a class="reference external" href="https://github.com/gradha/argument_parser/tree/stable">master branch</a>.</p>
 
-<h1 id="feedback">Feedback</h1><p>You can send me feedback through <a class="reference external" href="http://github.com/gradha/argument_parser/issues">github's issue tracker</a>. I also take a look from time to time to <a class="reference external" href="http://forum.nimrod-lang.org">Nimrod's forums</a> where you can talk to other nimrod programmers. </p>
+<h1 id="feedback">Feedback</h1><p>You can send me feedback through <a class="reference external" href="http://github.com/gradha/argument_parser/issues">github's issue tracker</a>. I also take a look from time to time to <a class="reference external" href="http://forum.nim-lang.org">Nim's forums</a> where you can talk to other Nim programmers. </p>
 
-
-
-<small>Generated: 2014-09-28 10:04:26 UTC</small>
+<small>Last modified: 2015-01-06 08:53 UTC. Local time: 2015-01-06 09:53.
+<div id="counter"></div>
+</small>
+<br>Rendered by lazy_rest 0.2.1.
 </div>
 </body>
+<script type="text/javascript">
+// Time difference code from http://stackoverflow.com/q/11479170/172690
+function timeDifference(current, previous) {
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = current - previous;
+
+    if (elapsed < msPerMinute) {
+         return Math.round(elapsed/1000) + ' seconds ago';
+    } else if (elapsed < msPerHour) {
+         return Math.round(elapsed/msPerMinute) + ' minutes ago';
+    } else if (elapsed < msPerDay ) {
+         return Math.round(elapsed/msPerHour ) + ' hours ago';
+    } else if (elapsed < msPerMonth) {
+         return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';
+    } else if (elapsed < msPerYear) {
+         return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+    } else {
+         return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';
+    }
+}
+
+// Timer base code taken from http://stackoverflow.com/a/11876480/172690
+window.onload = function() {
+    var fileTime = new Date(1420534383000);
+	var ctr = document.getElementById("counter");
+
+    function incrementCounter() {
+		var nowTime = new Date();
+		var relTime = timeDifference(nowTime, fileTime)
+		ctr.innerHTML = relTime;
+		// Update ourselves in the future, every five seconds.
+		setTimeout(incrementCounter, 5000);
+    }
+
+    incrementCounter();
+}
+</script>
+
 </html>

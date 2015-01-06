@@ -239,83 +239,123 @@ a.reference:hover {color: #E00000;background-color: #ffff00;display: margin;
 <body>
 <div class="document" id="documentId">
 <h1 class="title">Index</h1>
-<dt><span>`$`</span></dt><ul class="simple"><dd>
+Documents: <a href="docs/changes.html">Argument parser changes log</a>, <a href="LICENSE.html">Argument parser license</a>, <a href="README.html">Argument parser readme</a>, <a href="docs/release_steps.html">Argument parser release steps</a>.<br><p />Modules: <a href="argument_parser.html">argument_parser</a>, <a href="ex_cp.html">ex_cp</a>, <a href="ex_git.html">ex_git</a>, <a href="ex_mkdir.html">ex_mkdir</a>, <a href="ex_wget.html">ex_wget</a>.<br><p /><h2>Documentation files</h2>
+<ul><li><a href="docs/changes.html">Argument parser changes log</a>
+<ul>
+<li><a href="docs/changes.html#v0-4-1">v0.4.1 ????-??-??</a>
+<li><a href="docs/changes.html#v0-4-0-2015-01-06">v0.4.0 2015-01-06</a>
+<li><a href="docs/changes.html#v0-2-0-2013-12-22">v0.2.0 2013-12-22</a>
+<li><a href="docs/changes.html#v0-1-1-2013-04-13">v0.1.1 2013-04-13</a>
+<li><a href="docs/changes.html#v0-1-0-2013-03-10">v0.1.0 2013-03-10</a>
+</ul>
+</ul>
+<ul><li><a href="LICENSE.html">Argument parser license</a>
+<ul>
+</ul>
+</ul>
+<ul><li><a href="README.html">Argument parser readme</a>
+<ul>
+<li><a href="README.html#license">License</a>
+<li><a href="README.html#installation">Installation</a>
+<ul><li><a href="README.html#stable-version">Stable version</a>
+<li><a href="README.html#development-version">Development version</a>
+</ul><li><a href="README.html#documentation">Documentation</a>
+<li><a href="README.html#changes">Changes</a>
+<li><a href="README.html#git-branches">Git branches</a>
+<li><a href="README.html#feedback">Feedback</a>
+</ul>
+</ul>
+<ul><li><a href="docs/release_steps.html">Argument parser release steps</a>
+<ul>
+</ul>
+</ul>
+<h2>API symbols</h2>
+<dt><span>`$`:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="Stringifies a Tcommandline_results structure for debug output" href="argument_parser.html#$,Tcommandline_results">argument_parser : `$`(data: Tcommandline_results): string</a></li>
+          title="Stringifies a Tcommandline_results structure for debug output" href="argument_parser.html#$,Tcommandline_results">argument_parser : `$`*(data: Tcommandline_results): string</a></li>
           <li><a class="reference external"
-          title="Stringifies the type, used to generate help texts." href="argument_parser.html#$,Tparam_kind">argument_parser : `$`(value: Tparam_kind): string</a></li>
+          title="Stringifies the type, used to generate help texts." href="argument_parser.html#$,Tparam_kind">argument_parser : `$`*(value: Tparam_kind): string</a></li>
           <li><a class="reference external"
-          title="Stringifies the value, mostly for debug purposes.…" href="argument_parser.html#$,Tparsed_parameter">argument_parser : `$`(data: Tparsed_parameter): string</a></li>
+          title="Stringifies the value, mostly for debug purposes.…" href="argument_parser.html#$,Tparsed_parameter">argument_parser : `$`*(data: Tparsed_parameter): string</a></li>
           </ul></dd>
-<dt><span>build_help</span></dt><ul class="simple"><dd>
+<dt><span>build_help:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="Builds basic help text and returns it as a sequence of strings.…" href="argument_parser.html#build_help,seq[Tparameter_specification],string">argument_parser : build_help(expected: seq[Tparameter_specification] = @ []; 
+          title="Builds basic help text and returns it as a sequence of strings.…" href="argument_parser.html#build_help,seq[Tparameter_specification]">argument_parser : build_help*(expected: seq[Tparameter_specification] = @ []; 
+            type_of_positional_parameters = PK_STRING; 
+            bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;): seq[string]</a></li>
+          </ul></dd>
+<dt><span>echo_help:</span></dt><ul class="simple"><dd>
+<li><a class="reference external" href="argument_parser.html#echo_help,seq[Tparameter_specification]">argument_parser : echo_help*(expected: seq[Tparameter_specification] = @ []; 
            type_of_positional_parameters = PK_STRING; 
-           bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;): seq[string]</a></li>
-          </ul></dd>
-<dt><span>echo_help</span></dt><ul class="simple"><dd>
-<li><a class="reference external"
-          title="Prints out help on the terminal.…" href="argument_parser.html#echo_help,seq[Tparameter_specification],string">argument_parser : echo_help(expected: seq[Tparameter_specification] = @ []; 
-          type_of_positional_parameters = PK_STRING; 
-          bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;)</a></li>
-          </ul></dd>
-<dt><span>init</span></dt><ul class="simple"><dd>
-<li><a class="reference external"
-          title="Initialization helper with default parameters." href="argument_parser.html#init,Tcommandline_results,seq[Tparsed_parameter],TOrderedTable[string,Tparsed_parameter]">argument_parser : init(param: var Tcommandline_results; 
-     positional_parameters: seq[Tparsed_parameter] = @ []; 
-     options: TOrderedTable[string, Tparsed_parameter] = initOrderedTable(4))</a></li>
+           bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;)</a></li>
           <li><a class="reference external"
-          title="Initialization helper with default parameters.…" href="argument_parser.html#init,Tparameter_specification,Tparameter_callback,string,varargs[string]">argument_parser : init(param: var Tparameter_specification; consumes = PK_EMPTY; 
-     custom_validator: Tparameter_callback = nil; help_text = &quot;&quot;; 
-     names: varargs[string])</a></li>
+          title="Prints out help on the terminal.…" href="argument_parser.html#echo_help,seq[Tparameter_specification]_2">argument_parser : echo_help*(expected: seq[Tparameter_specification] = @ []; 
+           type_of_positional_parameters = PK_STRING; 
+           bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;)</a></li>
           </ul></dd>
-<dt><span>new_parameter_specification</span></dt><ul class="simple"><dd>
+<dt><span>init:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="Initialization helper for single assignment variables." href="argument_parser.html#new_parameter_specification,Tparameter_callback,string,varargs[string]">argument_parser : new_parameter_specification(consumes = PK_EMPTY; 
-                            custom_validator: Tparameter_callback = nil; 
-                            help_text = &quot;&quot;; names: varargs[string]): Tparameter_specification</a></li>
+          title="Initialization helper with default parameters." href="argument_parser.html#init,Tcommandline_results,seq[Tparsed_parameter],TOrderedTable[string,Tparsed_parameter]">argument_parser : init*(param: var Tcommandline_results; 
+      positional_parameters: seq[Tparsed_parameter] = @ []; options: TOrderedTable[
+    string, Tparsed_parameter] = initOrderedTable[string, Tparsed_parameter](4))</a></li>
+          <li><a class="reference external"
+          title="Initialization helper with default parameters.…" href="argument_parser.html#init,Tparameter_specification,Tparameter_callback,varargs[string]">argument_parser : init*(param: var Tparameter_specification; consumes = PK_EMPTY; 
+      custom_validator: Tparameter_callback = nil; help_text = &quot;&quot;; 
+      names: varargs[string])</a></li>
           </ul></dd>
-<dt><span>new_parsed_parameter</span></dt><ul class="simple"><dd>
+<dt><span>main:</span></dt><ul class="simple"><dd>
+<li><a class="reference external" href="examples/ex_cp.html#main,">ex_cp : main*()</a></li>
+          <li><a class="reference external" href="examples/ex_git.html#main,">ex_git : main*()</a></li>
+          <li><a class="reference external" href="examples/ex_mkdir.html#main,">ex_mkdir : main*()</a></li>
+          <li><a class="reference external" href="examples/ex_wget.html#main,">ex_wget : main*()</a></li>
+          </ul></dd>
+<dt><span>new_parameter_specification:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="Handy compile time template to build Tparsed_parameter object variants.…" href="argument_parser.html#new_parsed_parameter.t,Tparam_kind,">argument_parser : new_parsed_parameter(tkind: Tparam_kind; expr): Tparsed_parameter</a></li>
+          title="Initialization helper for single assignment variables." href="argument_parser.html#new_parameter_specification,Tparameter_callback,varargs[string]">argument_parser : new_parameter_specification*(consumes = PK_EMPTY; 
+                             custom_validator: Tparameter_callback = nil; 
+                             help_text = &quot;&quot;; names: varargs[string]): Tparameter_specification</a></li>
           </ul></dd>
-<dt><span>parse</span></dt><ul class="simple"><dd>
+<dt><span>new_parsed_parameter:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="Parses parameters and returns results.…" href="argument_parser.html#parse,seq[Tparameter_specification],seq[TaintedString],string">argument_parser : parse(expected: seq[Tparameter_specification] = @ []; 
-      type_of_positional_parameters = PK_STRING; args: seq[TaintedString] = nil; 
-      bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; end_of_options = &quot;--&quot;; 
-      quit_on_failure = true): Tcommandline_results</a></li>
+          title="Handy compile time template to build `Tparsed_parameter…" href="argument_parser.html#new_parsed_parameter.t,Tparam_kind,">argument_parser : new_parsed_parameter*(tkind: Tparam_kind; expr): Tparsed_parameter</a></li>
           </ul></dd>
-<dt><span>Tcommandline_results</span></dt><ul class="simple"><dd>
+<dt><span>parse:</span></dt><ul class="simple"><dd>
+<li><a class="reference external"
+          title="Parses parameters and returns results.…" href="argument_parser.html#parse,seq[Tparameter_specification],seq[TaintedString]">argument_parser : parse*(expected: seq[Tparameter_specification] = @ []; 
+       type_of_positional_parameters = PK_STRING; 
+       args: seq[TaintedString] = nil; bad_prefixes = @ [&quot;-&quot;, &quot;--&quot;]; 
+       end_of_options = &quot;--&quot;; quit_on_failure = true): Tcommandline_results</a></li>
+          </ul></dd>
+<dt><span>Tcommandline_results:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
           title="\…" href="argument_parser.html#Tcommandline_results">argument_parser : Tcommandline_results</a></li>
           </ul></dd>
-<dt><span>Tparameter_callback</span></dt><ul class="simple"><dd>
+<dt><span>Tparameter_callback:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
           title="\…" href="argument_parser.html#Tparameter_callback">argument_parser : Tparameter_callback</a></li>
           </ul></dd>
-<dt><span>Tparameter_specification</span></dt><ul class="simple"><dd>
+<dt><span>Tparameter_specification:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
           title="\…" href="argument_parser.html#Tparameter_specification">argument_parser : Tparameter_specification</a></li>
           </ul></dd>
-<dt><span>Tparam_kind</span></dt><ul class="simple"><dd>
+<dt><span>Tparam_kind:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
           title="Different types of results for parameter parsing." href="argument_parser.html#Tparam_kind">argument_parser : Tparam_kind</a></li>
           </ul></dd>
-<dt><span>Tparsed_parameter</span></dt><ul class="simple"><dd>
+<dt><span>Tparsed_parameter:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
           title="\…" href="argument_parser.html#Tparsed_parameter">argument_parser : Tparsed_parameter</a></li>
           </ul></dd>
-<dt><span>VERSION_INT</span></dt><ul class="simple"><dd>
+<dt><span>version_int:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="\…" href="argument_parser.html#VERSION_INT">argument_parser : VERSION_INT</a></li>
+          title="\…" href="argument_parser.html#version_int">argument_parser : version_int</a></li>
           </ul></dd>
-<dt><span>VERSION_STR</span></dt><ul class="simple"><dd>
+<dt><span>version_str:</span></dt><ul class="simple"><dd>
 <li><a class="reference external"
-          title="Module version as a string." href="argument_parser.html#VERSION_STR">argument_parser : VERSION_STR</a></li>
+          title="\…" href="argument_parser.html#version_str">argument_parser : version_str</a></li>
           </ul></dd>
 
-<small>Generated: 2014-09-28 10:04:26 UTC</small>
+<small>Generated: 2015-01-06 09:53:03 UTC</small>
 </div>
 </body>
 </html>
